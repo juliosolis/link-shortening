@@ -17,7 +17,7 @@ before_script:
   - gulp --production
 
 before_install:
-  - mysql -e 'CREATE DATABASE travis;'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS DBName;'
   
 script:
   - phpdbg -qrr vendor/bin/phpunit --coverage-clover=coverage.xml

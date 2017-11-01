@@ -13,6 +13,10 @@
 
 use App\Link;
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Route::get('/r/{hash}',function($hash) {
     //First we check if the hash is from a URL from our database
     $link = Link::where('hash','=',$hash)
@@ -30,10 +34,6 @@ Route::get('/r/{hash}',function($hash) {
             ->with('message','Invalid Hash');
     }
 })->where('hash', '[0-9a-zA-Z]{6}');
-
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 

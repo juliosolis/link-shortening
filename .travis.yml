@@ -1,7 +1,6 @@
 language: php
 
-php:  
-  - 7.0
+php:    
   - 7.1
 
 before_script:
@@ -17,7 +16,7 @@ before_script:
   - gulp --production
 
 before_install:
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS travis;'
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS homestead_test;'
   
 script:
   - phpdbg -qrr vendor/bin/phpunit --coverage-clover=coverage.xml
